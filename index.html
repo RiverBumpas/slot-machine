@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot Machine</title>
+    <script src="project.js" defer></script>
+    <script src="script.js" defer></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: black; color: white; }
+        h1 { color: gold; }
+        .game-container { margin-top: 20px; display: none; } /* Hidden until deposit is entered */
+        .reels-container { display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 20px 0; }
+        .reel-row { display: flex; justify-content: center; gap: 15px; }
+        .reel { 
+            width: 60px; 
+            height: 60px; 
+            font-size: 36px; /* Bigger for emojis */ 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            background: white; 
+            color: black; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            transition: background-color 0.5s ease-in-out; /* Smooth color change */
+        }
+        .win-reel { background-color: #90EE90; } /* ✅ Light Green for winning tiles */
+        input, button { margin-top: 10px; padding: 10px; font-size: 16px; }
+        .paytable {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            color: black;
+            font-size: 18px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    
+        .paytable th, .paytable td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    
+        .paytable th {
+            background-color: gold;
+            font-size: 20px;
+        }
+    
+        .paytable tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    
+        .paytable tr:hover {
+            background-color: #ddd;
+        }
+    </style>      
+</head>
+<body>
+
+    <h1>🎰 Slot Machine 🎰</h1>
+
+    <!-- Deposit Section -->
+    <div id="deposit-container">
+        <p>Enter your starting deposit:</p>
+        <input type="number" id="depositAmount" min="1">
+        <button id="startGame">Start Game</button>
+    </div>
+
+    <!-- Game Section (Hidden Until Deposit is Entered) -->
+    <div class="game-container" id="game-container">
+        <p>Balance: $<span id="balance">0</span></p>
+        <label for="betAmount">Bet Amount: $</label>
+        <input type="number" id="betAmount" value="10" min="1">
+        <button id="spinButton">Spin</button>
+
+        <div class="reels-container">
+            <div class="reel-row">
+                <div class="reel">?</div>
+                <div class="reel">?</div>
+                <div class="reel">?</div>
+            </div>
+            <div class="reel-row">
+                <div class="reel">?</div>
+                <div class="reel">?</div>
+                <div class="reel">?</div>
+            </div>
+            <div class="reel-row">
+                <div class="reel">?</div>
+                <div class="reel">?</div>
+                <div class="reel">?</div>
+            </div>
+        </div>
+
+        <p id="resultMessage"></p>
+    </div>
+        <!-- Paytable / Key Section -->
+<h2>📜 Paytable</h2>
+<table class="paytable">
+    <thead>
+        <tr>
+            <th>Symbol</th>
+            <th>Multiplier</th>
+            <th>Odds</th>
+        </tr>
+    </thead>
+    <tbody> <!-- Data rows will be inserted dynamically -->
+    </tbody>
+</table>
+
+    
+
+</body>
+</html>
