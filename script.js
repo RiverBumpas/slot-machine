@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         } else {
-            resultMessage.innerHTML = `❌ You lost.`;
+            resultMessage.innerHTML = `❌ You lost $` + bet + `❌`;
         }
 
         if (balance <= 0) {
